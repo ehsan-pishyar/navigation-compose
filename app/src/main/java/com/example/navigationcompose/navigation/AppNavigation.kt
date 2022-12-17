@@ -10,6 +10,7 @@ import androidx.navigation.navigation
 import com.example.navigationcompose.navigation.Graph.AUTH
 import com.example.navigationcompose.navigation.Graph.MAIN
 import com.example.navigationcompose.navigation.Graph.ROOT
+import com.example.navigationcompose.navigation.Graph.START
 import com.example.navigationcompose.screens.auth.ForgotPasswordScreen
 import com.example.navigationcompose.screens.auth.LoginScreen
 import com.example.navigationcompose.screens.auth.RegisterScreen
@@ -22,8 +23,9 @@ import com.example.navigationcompose.screens.start.WelcomeScreen
 @Composable
 fun AppNavigation(navHostController: NavHostController) {
     NavHost(
-        navController = navHostController,
-        startDestination = ROOT
+        route = ROOT,
+        startDestination = START,
+        navController = navHostController
     ) {
         startNavigation(navController = navHostController)
         authNavigation(navController = navHostController)
@@ -32,10 +34,15 @@ fun AppNavigation(navHostController: NavHostController) {
 }
 
 fun NavGraphBuilder.startNavigation(navController: NavController) {
-    composable(route = StartScreens.Welcome.route) {
-        WelcomeScreen(
-            toLoginScreen = { navController.navigate(AuthScreens.Login.route) }
-        )
+    navigation(
+        route = START,
+        startDestination = StartScreens.Welcome.route
+    ) {
+        composable(route = StartScreens.Welcome.route) {
+            WelcomeScreen(
+                toLoginScreen = { navController.navigate(AuthScreens.Login.route) }
+            )
+        }
     }
 }
 
@@ -87,6 +94,7 @@ fun NavGraphBuilder.mainNavigation(navController: NavController) {
 
 object Graph {
     const val ROOT = "root"
+    const val START = "start"
     const val AUTH = "auth"
     const val MAIN = "main"
 }
