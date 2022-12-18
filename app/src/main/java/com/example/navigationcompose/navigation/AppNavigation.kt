@@ -1,7 +1,6 @@
 package com.example.navigationcompose.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -20,6 +19,7 @@ import com.example.navigationcompose.screens.main.IncomesScreen
 import com.example.navigationcompose.screens.main.OrdersScreen
 import com.example.navigationcompose.screens.start.WelcomeScreen
 
+// For whole app navigation
 @Composable
 fun AppNavigation(navHostController: NavHostController) {
     NavHost(
@@ -33,7 +33,19 @@ fun AppNavigation(navHostController: NavHostController) {
     }
 }
 
-fun NavGraphBuilder.startNavigation(navController: NavController) {
+// For Dashboard bottom bar navigation
+@Composable
+fun MainNavigation(navController: NavHostController) {
+    NavHost(
+        navController = navController,
+        route = MAIN,
+        startDestination = MainScreens.Dashboard.route
+    ) {
+        mainNavigation(navController = navController)
+    }
+}
+
+fun NavGraphBuilder.startNavigation(navController: NavHostController) {
     navigation(
         route = START,
         startDestination = StartScreens.Welcome.route
@@ -46,7 +58,7 @@ fun NavGraphBuilder.startNavigation(navController: NavController) {
     }
 }
 
-fun NavGraphBuilder.authNavigation(navController: NavController) {
+fun NavGraphBuilder.authNavigation(navController: NavHostController) {
     navigation(
         route = AUTH,
         startDestination = AuthScreens.Login.route
@@ -72,7 +84,7 @@ fun NavGraphBuilder.authNavigation(navController: NavController) {
     }
 }
 
-fun NavGraphBuilder.mainNavigation(navController: NavController) {
+fun NavGraphBuilder.mainNavigation(navController: NavHostController) {
     navigation(
         route = MAIN,
         startDestination = MainScreens.Dashboard.route

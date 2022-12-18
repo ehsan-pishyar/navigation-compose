@@ -15,8 +15,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.navigationcompose.navigation.AppNavigation
 import com.example.navigationcompose.navigation.BottomNavItem
+import com.example.navigationcompose.navigation.MainNavigation
 import com.example.navigationcompose.utils.BottomNavData
 
 @Preview
@@ -34,7 +34,7 @@ fun DashboardScreen(navController: NavHostController = rememberNavController()) 
             )
         }
     ) {
-        AppNavigation(navHostController = navController)
+        MainNavigation(navController = navController)
     }
 
 //    Box(
