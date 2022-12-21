@@ -14,7 +14,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.navigationcompose.navigation.AuthNavGraph
+import com.ramcosta.composedestinations.annotation.Destination
 
+@AuthNavGraph
+@Destination
 @Composable
 fun RegisterScreen(
     toLoginScreen: () -> Unit,

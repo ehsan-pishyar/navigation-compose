@@ -14,10 +14,25 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.navigationcompose.navigation.StartNavGraph
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
+@StartNavGraph(start = true)
+@Destination
 @Composable
 fun WelcomeScreen(
     toLoginScreen: () -> Unit
+) {
+    val navigator: DestinationsNavigator? = null
+    WelcomeScreen(toLoginScreen = toLoginScreen, navigator = navigator!!)
+}
+
+@Composable
+internal fun WelcomeScreen(
+    toLoginScreen: () -> Unit,
+    navigator: DestinationsNavigator
 ) {
     Box(
         modifier = Modifier
