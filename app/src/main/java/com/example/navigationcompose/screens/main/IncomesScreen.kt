@@ -1,6 +1,7 @@
 package com.example.navigationcompose.screens.main
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,13 +14,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.example.navigationcompose.navigation.MainNavGraph
-import com.ramcosta.composedestinations.annotation.Destination
 
-@MainNavGraph
-@Destination
 @Composable
-fun IncomesScreen() {
+fun IncomesScreen(
+    toDetailsScreen: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -35,7 +34,10 @@ fun IncomesScreen() {
                 text = "Incomes",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                modifier = Modifier.clickable {
+                    toDetailsScreen()
+                }
             )
         }
     }

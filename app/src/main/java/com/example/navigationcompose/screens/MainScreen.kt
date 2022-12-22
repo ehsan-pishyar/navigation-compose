@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.navigationcompose.components.BottomBar
 import com.example.navigationcompose.navigation.AppNavigation
@@ -17,7 +16,6 @@ import com.example.navigationcompose.utils.BottomNavData
 fun MainScreen(
     navHostController: NavHostController
 ) {
-
     Scaffold(
         bottomBar = {
             BottomBar(
@@ -29,7 +27,7 @@ fun MainScreen(
         }
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues.calculateBottomPadding())) {
-            AppNavigation()
+            AppNavigation(navHostController)
         }
     }
 }
