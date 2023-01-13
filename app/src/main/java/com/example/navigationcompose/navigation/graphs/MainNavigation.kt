@@ -4,7 +4,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.navigationcompose.navigation.DetailsScreens
 import com.example.navigationcompose.navigation.Graph
 import com.example.navigationcompose.navigation.MainScreens
 import com.example.navigationcompose.screens.main.DashboardScreen
@@ -19,22 +18,20 @@ fun NavGraphBuilder.mainNavigation(navHostController: NavHostController) {
     ) {
         composable(route = MainScreens.Dashboard.route) {
             DashboardScreen(
-                toDetailsScreen = { navHostController.navigate(DetailsScreens.Detail.route) }
+                toDetailsScreen = {  }
             )
         }
         composable(route = MainScreens.Foods.route) {
-            FoodsScreen(
-                toDetailsScreen = { navHostController.navigate(DetailsScreens.Detail.route) }
-            )
+            FoodsScreen()
         }
         composable(route = MainScreens.Orders.route) {
             OrdersScreen(
-                toDetailsScreen = { navHostController.navigate(DetailsScreens.Detail.route) }
+                toDetailsScreen = {  }
             )
         }
         composable(route = MainScreens.Incomes.route) {
             IncomesScreen(
-                toDetailsScreen = { navHostController.navigate(DetailsScreens.Detail.route) }
+                toDetailsScreen = {  }
             )
         }
     }

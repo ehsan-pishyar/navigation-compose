@@ -17,9 +17,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NavigationComposeTheme {
-                val navController = rememberNavController()
                 // A surface container using the 'background' color from the theme
-                MainScreen(navHostController = navController)
+                val navController = rememberNavController()
+                AppNavigation(navHostController = navController)
             }
         }
     }

@@ -15,10 +15,8 @@ sealed class MainScreens(val route: String) {
     object Foods: MainScreens(route = "foods")
     object Orders: MainScreens(route = "orders")
     object Incomes: MainScreens(route = "incomes")
-}
 
-sealed class DetailsScreens(val route: String) {
-    object Detail: DetailsScreens(route = "foods/{id}") {
+    object Detail: MainScreens(route = "foods/{id}") {
         fun createRoute(root: MainScreens, id: String) =
             "${root.route}/$id"
     }

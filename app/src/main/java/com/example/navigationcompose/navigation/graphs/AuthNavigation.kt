@@ -16,9 +16,7 @@ fun NavGraphBuilder.authNavigation(navHostController: NavHostController) {
         route = Graph.AUTH,
         startDestination = AuthScreens.Login.route
     ) {
-        composable(
-            route = AuthScreens.Login.route
-        ) {
+        composable(route = AuthScreens.Login.route) {
             LoginScreen(
                 toRegisterScreen = { navHostController.navigate(AuthScreens.Register.route) },
                 toForgotPasswordScreen = { navHostController.navigate(AuthScreens.ForgotPassword.route) },

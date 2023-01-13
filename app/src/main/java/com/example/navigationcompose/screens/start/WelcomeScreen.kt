@@ -19,14 +19,6 @@ import androidx.compose.ui.unit.sp
 fun WelcomeScreen(
     toLoginScreen: () -> Unit
 ) {
-    WelcomeScreen(toLoginScreen = toLoginScreen)
-}
-
-@Composable
-internal fun WelcomeScreen(
-    toLoginScreen: () -> Unit,
-    test: String = ""
-) {
     Box(
         modifier = Modifier
             .fillMaxSize()
